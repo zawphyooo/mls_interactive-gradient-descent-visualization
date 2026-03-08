@@ -4,6 +4,44 @@ import streamlit as st
 
 
 st.set_page_config(page_title="Gradient Descent Visualizer", layout="wide")
+st.markdown(
+    """
+<style>
+[data-testid="stMetricValue"] {
+    font-size: 1.15rem;
+}
+[data-testid="stMetricDelta"],
+[data-testid="stMetricLabel"] {
+    font-size: 0.8rem;
+}
+.st-key-floating_controls {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1rem;
+    width: 290px;
+    padding: 0.55rem 0.6rem;
+    border: 1px solid rgba(17, 24, 39, 0.14);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 8px 24px rgba(17, 24, 39, 0.2);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+}
+.st-key-floating_controls .stButton > button {
+    height: 2.6rem;
+}
+@media (max-width: 900px) {
+    .st-key-floating_controls {
+        left: 0.6rem;
+        right: 0.6rem;
+        width: auto;
+        bottom: 0.6rem;
+    }
+}
+</style>
+""",
+    unsafe_allow_html=True,
+)
 
 
 def generate_data(n: int = 10, seed: int = 7) -> tuple[np.ndarray, np.ndarray]:
@@ -537,11 +575,18 @@ with st.sidebar:
     steps_per_click = st.slider("Steps per click", 1, 25, 1)
     use_3d_surface = st.checkbox("Diagram 3 as 3D surface", value=True)
 
+floating_controls = st.container(key="floating_controls")
+with floating_controls:
     c1, c2 = st.columns(2)
     with c1:
-        next_step = st.button("Next Step", use_container_width=True)
+        next_step = st.button(
+            "Next Step",
+            key="next_step_floating",
+            use_container_width=True,
+            type="primary",
+        )
     with c2:
-        reset = st.button("Reset", use_container_width=True)
+        reset = st.button("Reset", key="reset_floating", use_container_width=True)
 
 if reset:
     initialize_state()
@@ -611,3 +656,4 @@ st.markdown(
 - `b <- b - learning_rate * grad_b`
 """
 )
+st.markdown("<div style='height: 90px;'></div>", unsafe_allow_html=True)
