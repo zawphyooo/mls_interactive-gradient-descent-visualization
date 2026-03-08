@@ -11,11 +11,12 @@ Extra clarity elements:
 - **Current equation panel** showing `y = m*x + b` with live values.
 - **Update diagnostics** with `Delta m`, `Delta b`, and gradient norm `||g||`.
 - **3D reading guides**: path projection on floor, local `m`/`b` slice curves through the current point, and a vertical SSR height line.
+- **UI polish**: themed cards, compact header metrics, and floating action buttons for quick stepping.
 
 ## Setup
 
 ```bash
-cd yourfolder\ project/interactive-gradient-descent-visualization
+cd /Users/zawphyooo/Documents/New\ project/interactive-gradient-descent-visualization
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
