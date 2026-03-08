@@ -16,7 +16,7 @@ st.markdown(
 }
 .st-key-floating_controls {
     position: fixed;
-    right: 1.25rem;
+    left: 1.25rem;
     bottom: 1rem;
     width: 290px;
     padding: 0.55rem 0.6rem;
@@ -33,7 +33,6 @@ st.markdown(
 @media (max-width: 900px) {
     .st-key-floating_controls {
         left: 0.6rem;
-        right: 0.6rem;
         width: auto;
         bottom: 0.6rem;
     }

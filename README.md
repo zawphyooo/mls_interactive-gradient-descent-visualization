@@ -15,7 +15,7 @@ Extra clarity elements:
 ## Setup
 
 ```bash
-cd /Users/zawphyooo/Documents/New\ project/interactive-gradient-descent-visualization
+cd yourfolder\ project/interactive-gradient-descent-visualization
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
